@@ -21,6 +21,7 @@
 const scriptItems = [
 
   {
+     
     // ── CARD 1 ──────────────────────────────────────────────
     image:       "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=640&q=80",
     //            ↑ Paste your image URL here
@@ -77,7 +78,7 @@ const scriptItems = [
 
      {
     // ── CARD 6 ──────────────────────────────────────────────
-    image:       "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdEXbtcqJR53kqtb85K51sgCF-uYGtCRYejN2umBWx733r9e4Sb6p_NIxmikHmAIwRArtI4xLWYuLjHOtIfrjTCZhwYjdjBr1LUY8VWhVrNIwWBhbRom8pWwm_5DuDPvBRMNIXlv2bSXH4BjRG2SH8?key=gOPrlef1tpOkYdL2lAhj1A",
+    image:       "https://myvetsupplies.com/cdn/shop/products/628fbc9258f837f6bdc73136_624f0f0b76961efdcd601446_011-DHPASTE_wBox.jpg?v=1655324512&width=645",
     link:        "https://www.dhgate.com/product/designer-sunglasses-classic-eyeglasses-goggle/833344893.html?f=bm|aff|yfaf|2086127|2086127_2094467_654867|L69e8828be4b05a4ad5c30cde|260522230758a363d76f4f43e680b7291516|2103420|%7C",
     displayName: "DHGATE",
     title:       "Dhgate"
