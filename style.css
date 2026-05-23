@@ -4,14 +4,29 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 50px;
+  transition: 0.3s;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: #1c1c1c;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
 }
 
 h1 {
   font-size: 45px;
+  margin-bottom: 15px;
 }
 
 p {
   font-size: 20px;
+}
+
+.buttons {
+  margin-top: 25px;
 }
 
 button {
@@ -21,4 +36,21 @@ button {
   padding: 12px 20px;
   border-radius: 10px;
   font-size: 18px;
+  margin: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.light-mode {
+  background: white;
+  color: black;
+}
+
+.light-mode .container {
+  background: #eeeeee;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
 }
