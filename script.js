@@ -22,62 +22,7 @@ const scriptItems = [
 
   {
      
-    // ── CARD 1 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=640&q=80",
-    //            ↑ Paste your image URL here
-
-    link:        "https://example.com/script-one",
-    //            ↑ Paste your real destination URL here (users won't see this)
-
-    displayName: "Open Script",
-    //            ↑ Text shown on the button — choose anything you like
-
-    title:       "Auto-Clicker Pro"
-    //            ↑ Card headline text
-  },
-
-  {
-    // ── CARD 2 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&q=80",
-    link:        "https://example.com/script-two",
-    displayName: "Download",
-    title:       "Resource Monitor"
-  },
-
-  {
-    // ── CARD 3 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=640&q=80",
-    link:        "https://example.com/script-three",
-    displayName: "View Script",
-    title:       "Network Analyzer"
-  },
-
-  {
-    // ── CARD 4 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=640&q=80",
-    link:        "https://example.com/script-four",
-    displayName: "Open",
-    title:       "System Tweaker"
-  },
-
-  {
-    // ── CARD 5 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=640&q=80",
-    link:        "https://example.com/script-five",
-    displayName: "Launch",
-    title:       "Batch File Rename"
-  },
-
-  {
-    // ── CARD 6 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1533709752211-118fcaf03312?w=640&q=80",
-    link:        "https://example.com/script-six",
-    displayName: "View",
-    title:       "Dark Web Scraper"
-  },
-
-     {
-    // ── CARD 6 ──────────────────────────────────────────────
+    
     image:       "https://myvetsupplies.com/cdn/shop/products/628fbc9258f837f6bdc73136_624f0f0b76961efdcd601446_011-DHPASTE_wBox.jpg?v=1655324512&width=645",
     link:        "https://www.dhgate.com/product/designer-sunglasses-classic-eyeglasses-goggle/833344893.html?f=bm|aff|yfaf|2086127|2086127_2094467_654867|L69e8828be4b05a4ad5c30cde|260522230758a363d76f4f43e680b7291516|2103420|%7C",
     displayName: "DHGATE",
