@@ -1,26 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>General</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScriptVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <div class="container">
-    <h1>Welcome to General</h1>
-
-    <p id="message">
-      This is my website made with GitHub Pages.
-    </p>
-
-    <div class="buttons">
-      <button onclick="changeText()">Change Text</button>
-      <button onclick="changeTheme()">Change Theme</button>
-      <button onclick="showTime()">Show Time</button>
+  <!-- ============================================================
+       NAVIGATION BAR
+       ============================================================ -->
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="brand-bracket">[</span>
+      <span class="brand-text">VAULT</span>
+      <span class="brand-bracket">]</span>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"   class="nav-link" data-section="home">Menu</a></li>
+      <li><a href="#main"   class="nav-link" data-section="main">Main</a></li>
+      <li><a href="#info"   class="nav-link" data-section="info">Info</a></li>
+    </ul>
+  </nav>
 
-    <p id="time"></p>
-  </div>
+  <!-- ============================================================
+       HOME / HERO SECTION  (animated welcome text lives here)
+       ============================================================ -->
+  <section id="home" class="section hero-section">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">// welcome to</p>
+      <h1 class="hero-title" id="heroTitle"></h1>
+      <p class="hero-sub fade-in-delay">A curated collection of scripts, tools, and resources.</p>
+      <a href="#scripts" class="cta-btn fade-in-delay-2">
+        Browse Scripts <span class="cta-arrow">↓</span>
+      </a>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN SECTION  (anchor: #main)
+       ============================================================ -->
+  <section id="main" class="section main-section">
+    <div class="section-inner">
+      <div class="section-label">01 / MAIN</div>
+      <h2 class="section-heading">What's Here</h2>
+      <div class="main-grid">
+        <div class="main-card">
+          <div class="main-card-icon">⚡</div>
+          <h3>Fast Access</h3>
+          <p>Every script is one click away. No hunting through pages or complicated menus.</p>
+        </div>
+        <div class="main-card">
+          <div class="main-card-icon">🛡</div>
+          <h3>Vetted Links</h3>
+          <p>All resources listed here have been hand-picked and verified before being added.</p>
+        </div>
+        <div class="main-card">
+          <div class="main-card-icon">🔄</div>
+          <h3>Always Updated</h3>
+          <p>The collection grows over time. Check back regularly for new additions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INFO SECTION  (anchor: #info)
+       ============================================================ -->
+  <section id="info" class="section info-section">
+    <div class="section-inner">
+      <div class="section-label">02 / INFO</div>
+      <h2 class="section-heading">About This Site</h2>
+      <div class="info-layout">
+        <div class="info-text">
+          <p>
+            ScriptVault is a personal hub for storing and sharing scripts, utilities, and tools
+            in one clean, accessible place. Instead of scattered bookmarks and cluttered folders,
+            everything lives here — organized, labeled, and ready to use.
+          </p>
+          <p>
+            Each card below contains a direct link to a resource. The display name tells you
+            what the link does, so you always know exactly where you're going before you click.
+          </p>
+          <p>
+            Built with zero dependencies — pure HTML, CSS, and JavaScript. Fast, lightweight,
+            and fully customizable. Edit the top of <code>script.js</code> to add your own entries.
+          </p>
+        </div>
+        <div class="info-stats">
+          <div class="stat-box" id="statCount">
+            <span class="stat-number" id="scriptCount">0</span>
+            <span class="stat-label">Scripts</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">Capacity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SCRIPTS SECTION  (cards are injected here by script.js)
+       ============================================================ -->
+  <section id="scripts" class="section scripts-section">
+    <div class="section-inner">
+      <div class="section-label">03 / SCRIPTS</div>
+      <h2 class="section-heading">Script Library</h2>
+      <p class="scripts-subheading">Click any button to open the resource in a new tab.</p>
+
+      <!-- Cards are generated automatically from scriptItems in script.js -->
+      <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <p><span class="brand-bracket">[</span>VAULT<span class="brand-bracket">]</span> &mdash; All links open in a new tab.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
