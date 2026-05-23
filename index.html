@@ -5,9 +5,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to General</h1>
-  <p>This is my website made with GitHub Pages.</p>
 
-  <button onclick="alert('It works!')">Click me</button>
+  <div class="container">
+    <h1>Welcome to General</h1>
+
+    <p id="message">
+      This is my website made with GitHub Pages.
+    </p>
+
+    <div class="buttons">
+      <button onclick="changeText()">Change Text</button>
+      <button onclick="changeTheme()">Change Theme</button>
+      <button onclick="showTime()">Show Time</button>
+    </div>
+
+    <p id="time"></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
