@@ -25,7 +25,7 @@ const scriptItems = [
     
     image:       "https://tr.rbxcdn.com/180DAY-e2c86d2224da7753fb673da02d961f16/500/280/Image/Jpeg/noFilter",
     link:        "https://www.dhgate.com/product/designer-sunglasses-classic-eyeglasses-goggle/833344893.html?f=bm|aff|yfaf|2086127|2086127_2094467_654867|L69e8828be4b05a4ad5c30cde|260522230758a363d76f4f43e680b7291516|2103420|%7C",
-    displayName: "Flee the facility",
+    displayName: "Flee the Facility",
     title:       "Script"
   },
 
