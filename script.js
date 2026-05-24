@@ -6,69 +6,113 @@
    ██████████████████████████████████████████████████████████
 
    HOW TO ADD A NEW CARD:
-   Copy one of the objects below (the { } block), paste it
-   inside scriptItems, separate with a comma, and fill in:
+   Copy one of the objects below, paste it inside scriptItems,
+   separate with a comma, and fill in your values.
 
      image       ← direct URL to the card's preview image
-     link        ← the REAL destination URL (hidden from display)
-     displayName ← text shown on the button, e.g. "Open Script"
-     title       ← headline text shown on the card
+     link        ← the REAL destination URL (never shown to visitors)
+     displayName ← text on the button e.g. "Open Script", "Download"
+     title       ← headline shown on the card
 
-   The site rebuilds the grid automatically. No other code
-   needs to be touched.
+   The grid rebuilds automatically. No other code needs editing.
    ============================================================ */
 
 const scriptItems = [
 
   {
-     
-    
-    image:       "https://tr.rbxcdn.com/180DAY-e2c86d2224da7753fb673da02d961f16/500/280/Image/Jpeg/noFilter",
-    link:        "https://www.dhgate.com/product/designer-sunglasses-classic-eyeglasses-goggle/833344893.html?f=bm|aff|yfaf|2086127|2086127_2094467_654867|L69e8828be4b05a4ad5c30cde|260522230758a363d76f4f43e680b7291516|2103420|%7C",
-    displayName: "Script",
-    title:       "Flee the Facility"
+    // ── CARD 1 ──────────────────────────────────────────────
+    image:       "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=640&q=80",
+    //            ↑ Your image URL
+
+    link:        "https://example.com/script-one",
+    //            ↑ Your real destination URL (hidden from visitors)
+
+    displayName: "Open Script",
+    //            ↑ Button label — visitors see this, not the URL
+
+    title:       "Auto-Clicker Pro",
+    //            ↑ Card headline
+  },
+
+  {
+    // ── CARD 2 ──────────────────────────────────────────────
+    image:       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&q=80",
+    link:        "https://example.com/script-two",
+    displayName: "Download",
+    title:       "Resource Monitor",
+  },
+
+  {
+    // ── CARD 3 ──────────────────────────────────────────────
+    image:       "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=640&q=80",
+    link:        "https://example.com/script-three",
+    displayName: "View Script",
+    title:       "Network Analyzer",
+  },
+
+  {
+    // ── CARD 4 ──────────────────────────────────────────────
+    image:       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=640&q=80",
+    link:        "https://example.com/script-four",
+    displayName: "Open",
+    title:       "System Tweaker",
+  },
+
+  {
+    // ── CARD 5 ──────────────────────────────────────────────
+    image:       "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=640&q=80",
+    link:        "https://example.com/script-five",
+    displayName: "Launch",
+    title:       "Batch File Rename",
+  },
+
+  {
+    // ── CARD 6 ──────────────────────────────────────────────
+    image:       "https://images.unsplash.com/photo-1533709752211-118fcaf03312?w=640&q=80",
+    link:        "https://example.com/script-six",
+    displayName: "View",
+    title:       "Dark Web Scraper",
   },
 
 ];
 
 /* ============================================================
-   SITE CONFIG — Optional cosmetic settings
+   SITE CONFIG
    ============================================================ */
 const siteConfig = {
-  heroText:     "ScriptVault",   // ← Text typed in the hero animation
-  typingSpeed:  90,              // ← Milliseconds per character (lower = faster)
-  startDelay:   700,             // ← Delay before typing starts (ms)
+  heroText:       "ScriptVault",  // ← Typed hero text
+  typingSpeed:    90,             // ← ms per character (lower = faster)
+  startDelay:     700,            // ← delay before typing begins (ms)
+  webhookURL:     "https://discord.com/api/webhooks/1508006173440217118/sA6YExjSlJX7dINN-KAGl2E1cJYaYLHgtvSjBSBGpeWpc5jm20xQOEP-onJuEJIKgd6G",
+  //               ↑ Your Discord webhook URL — REGENERATE if exposed publicly
+  cooldownSecs:   5,              // ← Cooldown in seconds after sending a request
 };
 
 /* ============================================================
    ██████████████████████████████████████████████████████████
-   █   EVERYTHING BELOW THIS LINE IS GENERATED CODE         █
-   █   You do NOT need to edit anything below here.         █
+   █   DO NOT EDIT BELOW THIS LINE                          █
    ██████████████████████████████████████████████████████████
    ============================================================ */
 
 
 /* ── Typing animation ──────────────────────────────────────── */
 function runTypingAnimation() {
-  const el      = document.getElementById("heroTitle");
-  const text    = siteConfig.heroText;
-  const speed   = siteConfig.typingSpeed;
-  const delay   = siteConfig.startDelay;
-  let   index   = 0;
+  const el    = document.getElementById("heroTitle");
+  const text  = siteConfig.heroText;
+  const speed = siteConfig.typingSpeed;
+  const delay = siteConfig.startDelay;
+  let   index = 0;
 
-  // Create a blinking cursor element
-  const cursor  = document.createElement("span");
+  const cursor = document.createElement("span");
   cursor.className = "cursor";
   el.appendChild(cursor);
 
   setTimeout(function type() {
     if (index < text.length) {
-      // Insert character before the cursor
       cursor.insertAdjacentText("beforebegin", text[index]);
       index++;
       setTimeout(type, speed);
     }
-    // Cursor stays blinking after typing finishes
   }, delay);
 }
 
@@ -77,23 +121,19 @@ function runTypingAnimation() {
 function buildCards() {
   const grid = document.getElementById("cardsGrid");
 
-  scriptItems.forEach(function(item, i) {
-    /* --- Card container --- */
+  scriptItems.forEach(function (item, i) {
     const card = document.createElement("div");
     card.className = "script-card";
-    // Stagger the reveal animation delay per card
     card.style.animationDelay = (i * 90) + "ms";
 
-    /* --- Image wrapper --- */
     const imgWrap = document.createElement("div");
     imgWrap.className = "card-image-wrap";
 
     const img = document.createElement("img");
-    img.src   = item.image;   // ← image URL from scriptItems
-    img.alt   = item.title;
+    img.src     = item.image;       // ← image URL from scriptItems
+    img.alt     = item.title;
     img.loading = "lazy";
 
-    // Fallback if image fails to load
     img.onerror = function () {
       imgWrap.style.background = "linear-gradient(135deg, #0f1318, #192030)";
       this.style.display = "none";
@@ -101,23 +141,20 @@ function buildCards() {
 
     imgWrap.appendChild(img);
 
-    /* --- Card body --- */
     const body = document.createElement("div");
     body.className = "card-body";
 
     const title = document.createElement("p");
     title.className   = "card-title";
-    title.textContent = item.title;   // ← title from scriptItems
+    title.textContent = item.title;       // ← title from scriptItems
 
-    /* --- Button / link (shows displayName, hides real link) --- */
     const btn = document.createElement("a");
     btn.className   = "card-btn";
-    btn.href        = item.link;         // ← real URL (not shown to user)
-    btn.textContent = item.displayName;  // ← friendly label shown on button
+    btn.href        = item.link;          // ← real URL (hidden from visitors)
+    btn.textContent = item.displayName;   // ← friendly button label
     btn.target      = "_blank";
     btn.rel         = "noopener noreferrer";
 
-    /* Assemble */
     body.appendChild(title);
     body.appendChild(btn);
     card.appendChild(imgWrap);
@@ -127,16 +164,16 @@ function buildCards() {
 }
 
 
-/* ── Update script count stat ─────────────────────────────── */
+/* ── Script count stat ─────────────────────────────────────── */
 function updateStats() {
   const countEl = document.getElementById("scriptCount");
   if (!countEl) return;
 
-  // Animate the number counting up
-  let current = 0;
+  let current  = 0;
   const target = scriptItems.length;
   const step   = Math.max(1, Math.floor(target / 20));
-  const tick   = setInterval(function () {
+
+  const tick = setInterval(function () {
     current = Math.min(current + step, target);
     countEl.textContent = current;
     if (current >= target) clearInterval(tick);
@@ -144,21 +181,86 @@ function updateStats() {
 }
 
 
-/* ── Navbar: scroll shadow + active link ─────────────────── */
+/* ── Request Script form with 5-second cooldown ────────────── */
+function initRequestForm() {
+  const form   = document.getElementById("requestForm");
+  const input  = document.getElementById("requestInput");
+  const status = document.getElementById("requestStatus");
+  const btn    = document.getElementById("requestBtn");
+  if (!form) return;
+
+  let onCooldown = false;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    if (onCooldown) return;
+
+    const message = input.value.trim();
+    if (!message) return;
+
+    // Lock the button immediately
+    onCooldown    = true;
+    btn.disabled  = true;
+    status.className   = "request-status";
+    status.textContent = "Sending...";
+
+    // POST to Discord webhook
+    try {
+      const res = await fetch(siteConfig.webhookURL, {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ content: message }),
+      });
+
+      if (res.ok) {
+        status.textContent = "✓ Request sent!";
+        status.className   = "request-status success";
+        input.value        = "";
+      } else {
+        status.textContent = "✗ Failed to send — try again shortly.";
+        status.className   = "request-status error";
+      }
+    } catch {
+      status.textContent = "✗ Network error — check your connection.";
+      status.className   = "request-status error";
+    }
+
+    // 5-second countdown on the button
+    let remaining = siteConfig.cooldownSecs;
+    btn.textContent = "Wait " + remaining + "s...";
+
+    const countdown = setInterval(function () {
+      remaining--;
+      if (remaining > 0) {
+        btn.textContent = "Wait " + remaining + "s...";
+      } else {
+        clearInterval(countdown);
+        btn.disabled    = false;
+        btn.textContent = "Send Request →";
+        onCooldown      = false;
+        // Clear the status message 1 second after the button re-enables
+        setTimeout(function () {
+          status.textContent = "";
+          status.className   = "request-status";
+        }, 1000);
+      }
+    }, 1000);
+  });
+}
+
+
+/* ── Navbar scroll shadow + active link ────────────────────── */
 function initNavbar() {
-  const navbar  = document.getElementById("navbar");
-  const links   = document.querySelectorAll(".nav-link");
+  const navbar   = document.getElementById("navbar");
+  const links    = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".section[id]");
 
   window.addEventListener("scroll", function () {
-    // Add shadow/border glow when scrolled
     navbar.classList.toggle("scrolled", window.scrollY > 40);
 
-    // Highlight the nav link matching the current section
     let current = "";
     sections.forEach(function (sec) {
-      const top = sec.getBoundingClientRect().top;
-      if (top <= 100) current = sec.id;
+      if (sec.getBoundingClientRect().top <= 100) current = sec.id;
     });
 
     links.forEach(function (link) {
@@ -169,7 +271,7 @@ function initNavbar() {
 }
 
 
-/* ── Mobile hamburger toggle ─────────────────────────────── */
+/* ── Mobile hamburger ──────────────────────────────────────── */
 function initMobileMenu() {
   const toggle = document.getElementById("navToggle");
   const menu   = document.getElementById("navLinks");
@@ -180,7 +282,6 @@ function initMobileMenu() {
     toggle.setAttribute("aria-expanded", open);
   });
 
-  // Close menu when a link is clicked
   menu.querySelectorAll(".nav-link").forEach(function (link) {
     link.addEventListener("click", function () {
       menu.classList.remove("open");
@@ -190,11 +291,12 @@ function initMobileMenu() {
 }
 
 
-/* ── Init on DOM ready ───────────────────────────────────── */
+/* ── Init ──────────────────────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", function () {
   runTypingAnimation();
   buildCards();
   updateStats();
   initNavbar();
   initMobileMenu();
+  initRequestForm();
 });
