@@ -19,59 +19,12 @@
 
 const scriptItems = [
 
-  {
-    // ── CARD 1 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=640&q=80",
-    //            ↑ Your image URL
-
-    link:        "https://example.com/script-one",
-    //            ↑ Your real destination URL (hidden from visitors)
-
-    displayName: "Open Script",
-    //            ↑ Button label — visitors see this, not the URL
-
-    title:       "Auto-Clicker Pro",
-    //            ↑ Card headline
-  },
-
-  {
+   {
     // ── CARD 2 ──────────────────────────────────────────────
     image:       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&q=80",
     link:        "https://example.com/script-two",
-    displayName: "Download",
-    title:       "Resource Monitor",
-  },
-
-  {
-    // ── CARD 3 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=640&q=80",
-    link:        "https://example.com/script-three",
-    displayName: "View Script",
-    title:       "Network Analyzer",
-  },
-
-  {
-    // ── CARD 4 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=640&q=80",
-    link:        "https://example.com/script-four",
-    displayName: "Open",
-    title:       "System Tweaker",
-  },
-
-  {
-    // ── CARD 5 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=640&q=80",
-    link:        "https://example.com/script-five",
-    displayName: "Launch",
-    title:       "Batch File Rename",
-  },
-
-  {
-    // ── CARD 6 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1533709752211-118fcaf03312?w=640&q=80",
-    link:        "https://example.com/script-six",
-    displayName: "View",
-    title:       "Dark Web Scraper",
+    displayName: "Script",
+    title:       "Flee the Facility",
   },
 
 ];
@@ -85,7 +38,7 @@ const siteConfig = {
   startDelay:     700,            // ← delay before typing begins (ms)
   webhookURL:     "https://discord.com/api/webhooks/1508006173440217118/sA6YExjSlJX7dINN-KAGl2E1cJYaYLHgtvSjBSBGpeWpc5jm20xQOEP-onJuEJIKgd6G",
   //               ↑ Your Discord webhook URL — REGENERATE if exposed publicly
-  cooldownSecs:   5,              // ← Cooldown in seconds after sending a request
+  cooldownSecs:   30,              // ← Cooldown in seconds after sending a request
 };
 
 /* ============================================================
