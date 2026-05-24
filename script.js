@@ -40,14 +40,9 @@ const scriptItems = [
    SITE CONFIG
    ============================================================ */
 const siteConfig = {
-  heroText:       "ScriptVault",  // ← Typed hero text
-  typingSpeed:    90,             // ← ms per character (lower = faster)
-  startDelay:     700,            // ← delay before typing begins (ms)
-  webhookURL:     "https://discord.com/api/webhooks/1508006173440217118/sA6YExjSlJX7dINN-KAGl2E1cJYaYLHgtvSjBSBGpeWpc5jm20xQOEP-onJuEJIKgd6G",
-  //               ↑ Your Discord webhook URL
-  discordInvite:  "https://discord.gg/Jc5dpWqBtZ",
-  //               ↑ Your Discord invite link
-  cooldownSecs:   30,             // ← Cooldown in seconds after sending a request
+  heroText:    "ScriptVault",  // ← Typed hero text
+  typingSpeed: 90,             // ← ms per character (lower = faster)
+  startDelay:  700,            // ← delay before typing begins (ms)
 };
 
 /* ============================================================
@@ -143,71 +138,6 @@ function updateStats() {
 }
 
 
-/* ── Request Script form with cooldown ─────────────────────── */
-function initRequestForm() {
-  const form   = document.getElementById("requestForm");
-  const input  = document.getElementById("requestInput");
-  const status = document.getElementById("requestStatus");
-  const btn    = document.getElementById("requestBtn");
-  if (!form) return;
-
-  let onCooldown = false;
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    if (onCooldown) return;
-
-    const message = input.value.trim();
-    if (!message) return;
-
-    onCooldown   = true;
-    btn.disabled = true;
-    status.className   = "request-status";
-    status.textContent = "Sending...";
-
-    try {
-      const res = await fetch(siteConfig.webhookURL, {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ content: message }),
-      });
-
-      if (res.ok) {
-        status.textContent = "✓ Request sent!";
-        status.className   = "request-status success";
-        input.value        = "";
-      } else {
-        status.textContent = "✗ Failed to send — try again shortly.";
-        status.className   = "request-status error";
-      }
-    } catch {
-      status.textContent = "✗ Network error — check your connection.";
-      status.className   = "request-status error";
-    }
-
-    // Countdown
-    let remaining = siteConfig.cooldownSecs;
-    btn.textContent = "Wait " + remaining + "s...";
-
-    const countdown = setInterval(function () {
-      remaining--;
-      if (remaining > 0) {
-        btn.textContent = "Wait " + remaining + "s...";
-      } else {
-        clearInterval(countdown);
-        btn.disabled    = false;
-        btn.textContent = "Send Request →";
-        onCooldown      = false;
-        setTimeout(function () {
-          status.textContent = "";
-          status.className   = "request-status";
-        }, 1000);
-      }
-    }, 1000);
-  });
-}
-
-
 /* ── Navbar scroll shadow + active link ────────────────────── */
 function initNavbar() {
   const navbar   = document.getElementById("navbar");
@@ -257,5 +187,4 @@ document.addEventListener("DOMContentLoaded", function () {
   updateStats();
   initNavbar();
   initMobileMenu();
-  initRequestForm();
 });
