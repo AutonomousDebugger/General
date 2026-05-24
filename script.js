@@ -21,10 +21,10 @@ const scriptItems = [
 
   {
     // ── CARD 1 ──────────────────────────────────────────────
-    image:       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&q=80",
+    image:       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG3l-JyKWGEc0qvkFH5tZlwOoQN_kibafTs3OkzBEmOA&s=10",
     //            ↑ Your image URL
 
-    link:        "https://example.com/script-two",
+    link:        "https://pastebin.com/y3hgnjZ2",
     //            ↑ Your real destination URL (hidden from visitors)
 
     displayName: "Script",
