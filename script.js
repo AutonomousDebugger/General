@@ -19,12 +19,19 @@
 
 const scriptItems = [
 
-   {
-    // ── CARD 2 ──────────────────────────────────────────────
+  {
+    // ── CARD 1 ──────────────────────────────────────────────
     image:       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&q=80",
+    //            ↑ Your image URL
+
     link:        "https://example.com/script-two",
+    //            ↑ Your real destination URL (hidden from visitors)
+
     displayName: "Script",
+    //            ↑ Button label — visitors see this, not the URL
+
     title:       "Flee the Facility",
+    //            ↑ Card headline
   },
 
 ];
@@ -37,8 +44,10 @@ const siteConfig = {
   typingSpeed:    90,             // ← ms per character (lower = faster)
   startDelay:     700,            // ← delay before typing begins (ms)
   webhookURL:     "https://discord.com/api/webhooks/1508006173440217118/sA6YExjSlJX7dINN-KAGl2E1cJYaYLHgtvSjBSBGpeWpc5jm20xQOEP-onJuEJIKgd6G",
-  //               ↑ Your Discord webhook URL — REGENERATE if exposed publicly
-  cooldownSecs:   30,              // ← Cooldown in seconds after sending a request
+  //               ↑ Your Discord webhook URL
+  discordInvite:  "https://discord.gg/Jc5dpWqBtZ",
+  //               ↑ Your Discord invite link
+  cooldownSecs:   30,             // ← Cooldown in seconds after sending a request
 };
 
 /* ============================================================
@@ -83,7 +92,7 @@ function buildCards() {
     imgWrap.className = "card-image-wrap";
 
     const img = document.createElement("img");
-    img.src     = item.image;       // ← image URL from scriptItems
+    img.src     = item.image;
     img.alt     = item.title;
     img.loading = "lazy";
 
@@ -99,12 +108,12 @@ function buildCards() {
 
     const title = document.createElement("p");
     title.className   = "card-title";
-    title.textContent = item.title;       // ← title from scriptItems
+    title.textContent = item.title;
 
     const btn = document.createElement("a");
     btn.className   = "card-btn";
-    btn.href        = item.link;          // ← real URL (hidden from visitors)
-    btn.textContent = item.displayName;   // ← friendly button label
+    btn.href        = item.link;
+    btn.textContent = item.displayName;
     btn.target      = "_blank";
     btn.rel         = "noopener noreferrer";
 
@@ -134,7 +143,7 @@ function updateStats() {
 }
 
 
-/* ── Request Script form with 5-second cooldown ────────────── */
+/* ── Request Script form with cooldown ─────────────────────── */
 function initRequestForm() {
   const form   = document.getElementById("requestForm");
   const input  = document.getElementById("requestInput");
@@ -151,13 +160,11 @@ function initRequestForm() {
     const message = input.value.trim();
     if (!message) return;
 
-    // Lock the button immediately
-    onCooldown    = true;
-    btn.disabled  = true;
+    onCooldown   = true;
+    btn.disabled = true;
     status.className   = "request-status";
     status.textContent = "Sending...";
 
-    // POST to Discord webhook
     try {
       const res = await fetch(siteConfig.webhookURL, {
         method:  "POST",
@@ -178,7 +185,7 @@ function initRequestForm() {
       status.className   = "request-status error";
     }
 
-    // 5-second countdown on the button
+    // Countdown
     let remaining = siteConfig.cooldownSecs;
     btn.textContent = "Wait " + remaining + "s...";
 
@@ -191,7 +198,6 @@ function initRequestForm() {
         btn.disabled    = false;
         btn.textContent = "Send Request →";
         onCooldown      = false;
-        // Clear the status message 1 second after the button re-enables
         setTimeout(function () {
           status.textContent = "";
           status.className   = "request-status";
