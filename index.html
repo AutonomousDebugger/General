@@ -24,14 +24,15 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home"   class="nav-link" data-section="home">Menu</a></li>
-      <li><a href="#main"   class="nav-link" data-section="main">Main</a></li>
-      <li><a href="#info"   class="nav-link" data-section="info">Info</a></li>
+      <li><a href="#home"    class="nav-link" data-section="home">Menu</a></li>
+      <li><a href="#main"    class="nav-link" data-section="main">Main</a></li>
+      <li><a href="#info"    class="nav-link" data-section="info">Info</a></li>
+      <li><a href="#request" class="nav-link" data-section="request">Request Script</a></li>
     </ul>
   </nav>
 
   <!-- ============================================================
-       HOME / HERO SECTION  (animated welcome text lives here)
+       HOME / HERO SECTION
        ============================================================ -->
   <section id="home" class="section hero-section">
     <div class="hero-bg-grid"></div>
@@ -50,7 +51,7 @@
   </section>
 
   <!-- ============================================================
-       MAIN SECTION  (anchor: #main)
+       MAIN SECTION
        ============================================================ -->
   <section id="main" class="section main-section">
     <div class="section-inner">
@@ -77,7 +78,7 @@
   </section>
 
   <!-- ============================================================
-       INFO SECTION  (anchor: #info)
+       INFO SECTION
        ============================================================ -->
   <section id="info" class="section info-section">
     <div class="section-inner">
@@ -86,21 +87,22 @@
       <div class="info-layout">
         <div class="info-text">
           <p>
-            ScriptVault is a personal hub for storing and sharing scripts, utilities, and tools
-            in one clean, accessible place. Instead of scattered bookmarks and cluttered folders,
+            ScriptVault is a hub for storing and sharing scripts, utilities, and tools
+            in one clean, accessible place. Instead of scattered links and cluttered folders,
             everything lives here — organized, labeled, and ready to use.
           </p>
           <p>
-            Each card below contains a direct link to a resource. The display name tells you
-            what the link does, so you always know exactly where you're going before you click.
+            Each card contains a direct link to a resource. The button label tells you
+            exactly what the link does before you click it.
           </p>
           <p>
-            Built with zero dependencies — pure HTML, CSS, and JavaScript. Fast, lightweight,
-            and fully customizable. Edit the top of <code>script.js</code> to add your own entries.
+            Don't see a script you need? Head over to the
+            <a href="#request" class="info-link">Request Script</a> section and send a request
+            directly. Suggestions are reviewed and added regularly.
           </p>
         </div>
         <div class="info-stats">
-          <div class="stat-box" id="statCount">
+          <div class="stat-box">
             <span class="stat-number" id="scriptCount">0</span>
             <span class="stat-label">Scripts</span>
           </div>
@@ -114,16 +116,39 @@
   </section>
 
   <!-- ============================================================
-       SCRIPTS SECTION  (cards are injected here by script.js)
+       SCRIPTS SECTION  (cards injected by script.js)
        ============================================================ -->
   <section id="scripts" class="section scripts-section">
     <div class="section-inner">
       <div class="section-label">03 / SCRIPTS</div>
       <h2 class="section-heading">Script Library</h2>
       <p class="scripts-subheading">Click any button to open the resource in a new tab.</p>
-
-      <!-- Cards are generated automatically from scriptItems in script.js -->
       <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       REQUEST SCRIPT SECTION
+       ============================================================ -->
+  <section id="request" class="section request-section">
+    <div class="section-inner">
+      <div class="section-label">04 / REQUEST SCRIPT</div>
+      <h2 class="section-heading">Request a Script</h2>
+      <p class="scripts-subheading">Don't see what you need? Submit a request and it may be added.</p>
+      <form id="requestForm" class="request-form">
+        <textarea
+          id="requestInput"
+          class="request-textarea"
+          placeholder="Describe the script you're looking for..."
+          rows="5"
+          maxlength="1800"
+          required
+        ></textarea>
+        <div class="request-footer">
+          <span class="request-status" id="requestStatus"></span>
+          <button type="submit" class="request-btn" id="requestBtn">Send Request →</button>
+        </div>
+      </form>
     </div>
   </section>
 
