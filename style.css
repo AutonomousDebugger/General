@@ -203,7 +203,6 @@ body {
   padding-top: var(--nav-h);
 }
 
-/* Subtle dot-grid background */
 .hero-bg-grid {
   position: absolute;
   inset: 0;
@@ -232,7 +231,6 @@ body {
   animation: fadeUp 0.6s 0.2s forwards;
 }
 
-/* The typed title */
 .hero-title {
   font-family: var(--font-mono);
   font-size: clamp(2.4rem, 7vw, 5rem);
@@ -241,11 +239,9 @@ body {
   color: var(--text-primary);
   letter-spacing: -0.03em;
   min-height: 1.2em;
-  /* Glow on the typed text */
   text-shadow: 0 0 40px rgba(0, 200, 170, 0.25);
 }
 
-/* Blinking cursor appended by JS */
 .cursor {
   display: inline-block;
   width: 3px;
@@ -299,7 +295,6 @@ body {
   transform: translateY(3px);
 }
 
-/* Delayed fade-ins */
 .fade-in-delay {
   opacity: 0;
   animation: fadeUp 0.6s 1.6s forwards;
@@ -315,7 +310,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll hint */
 .scroll-hint {
   position: absolute;
   bottom: 2.5rem;
@@ -381,7 +375,6 @@ body {
 .main-card-icon {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  filter: grayscale(0.2);
 }
 
 .main-card h3 {
@@ -421,14 +414,16 @@ body {
   line-height: 1.75;
 }
 
-.info-text code {
-  font-family: var(--font-mono);
-  background: var(--bg-card);
+.info-link {
   color: var(--accent-text);
-  border: 1px solid var(--border);
-  padding: 2px 7px;
-  border-radius: 4px;
-  font-size: 0.85em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-dim);
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.info-link:hover {
+  color: #fff;
+  border-bottom-color: var(--accent);
 }
 
 .info-stats {
@@ -487,14 +482,12 @@ body {
   margin-bottom: 3rem;
 }
 
-/* ---- Card Grid ---- */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.75rem;
 }
 
-/* ---- Individual Card ---- */
 .script-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -503,7 +496,6 @@ body {
   display: flex;
   flex-direction: column;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-  /* Stagger revealed via JS inline style */
   opacity: 0;
   transform: translateY(20px);
   animation: cardReveal 0.5s forwards;
@@ -519,7 +511,6 @@ body {
   box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px var(--border-glow);
 }
 
-/* Card image area */
 .card-image-wrap {
   position: relative;
   width: 100%;
@@ -542,7 +533,6 @@ body {
   filter: brightness(1) saturate(1.1);
 }
 
-/* Overlay shimmer on hover */
 .card-image-wrap::after {
   content: '';
   position: absolute;
@@ -551,7 +541,6 @@ body {
   pointer-events: none;
 }
 
-/* Card body */
 .card-body {
   padding: 1.2rem 1.3rem 1.5rem;
   display: flex;
@@ -569,7 +558,6 @@ body {
   line-height: 1.4;
 }
 
-/* Card button / link */
 .card-btn {
   display: inline-flex;
   align-items: center;
@@ -606,6 +594,93 @@ body {
 .card-btn:hover::before {
   transform: translateX(3px);
 }
+
+/* ============================================================
+   REQUEST SCRIPT SECTION
+   ============================================================ */
+.request-section {
+  background: var(--bg-base);
+  border-top: 1px solid var(--border);
+  min-height: auto;
+  padding-bottom: 6rem;
+}
+
+.request-form {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.request-textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 1.1rem 1.3rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  line-height: 1.65;
+}
+
+.request-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.request-textarea:focus {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 3px rgba(0,200,170,0.08);
+}
+
+.request-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.request-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition),
+              color var(--transition), opacity var(--transition);
+}
+
+.request-btn:hover:not(:disabled) {
+  background: rgba(0,200,170,0.1);
+  box-shadow: 0 0 20px rgba(0,200,170,0.2);
+  color: #fff;
+}
+
+.request-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+.request-status {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  transition: color var(--transition);
+}
+
+.request-status.success { color: var(--accent-text); }
+.request-status.error   { color: #ff6b6b; }
 
 /* ============================================================
    FOOTER
